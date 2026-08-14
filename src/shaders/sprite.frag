@@ -32,6 +32,15 @@ uniform float u_mosaic;
 #ifdef ENABLE_ghost
 uniform float u_ghost;
 #endif // ENABLE_ghost
+#ifdef ENABLE_red
+uniform float u_red;
+#endif // ENABLE_red
+#ifdef ENABLE_green
+uniform float u_green;
+#endif // ENABLE_green
+#ifdef ENABLE_blue
+uniform float u_blue;
+#endif // ENABLE_blue
 
 #ifdef DRAW_MODE_line
 varying vec4 v_lineColor;
@@ -198,6 +207,18 @@ void main()
 	#ifdef ENABLE_ghost
 	gl_FragColor *= u_ghost;
 	#endif // ENABLE_ghost
+
+    #ifdef ENABLE_red
+	gl_FragColor.r *= u_red;
+	#endif // ENABLE_red
+
+	#ifdef ENABLE_green
+	gl_FragColor.g *= u_green;
+	#endif // ENABLE_green
+
+	#ifdef ENABLE_blue
+	gl_FragColor.b *= u_blue;
+	#endif // ENABLE_blue
 
 	#ifdef DRAW_MODE_silhouette
 	// Discard fully transparent pixels for stencil test
