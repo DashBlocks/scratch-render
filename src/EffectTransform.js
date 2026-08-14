@@ -66,8 +66,10 @@ class EffectTransform {
                 // vec3 hsv = convertRGB2HSV(gl_FragColor.xyz);
                 const hsv = rgbToHsv(inOutColor, __hsv);
 
-                // this code forces grayscale values to be slightly saturated
+                // This code forces grayscale values to be slightly saturated
                 // so that some slight change of hue will be visible
+                // dash: this makes costumes with grayscale parts look ugly, so it's disabled
+                /*
                 // const float minLightness = 0.11 / 2.0;
                 const minV = 0.11 / 2.0;
                 // const float minSaturation = 0.09;
@@ -82,6 +84,7 @@ class EffectTransform {
                     hsv[0] = 0;
                     hsv[1] = minS;
                 }
+                */
 
                 // hsv.x = mod(hsv.x + u_color, 1.0);
                 // if (hsv.x < 0.0) hsv.x += 1.0;
