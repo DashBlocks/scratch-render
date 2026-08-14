@@ -170,12 +170,14 @@ void main()
 	{
 		vec3 hsv = convertRGB2HSV(gl_FragColor.xyz);
 
-		// this code forces grayscale values to be slightly saturated
+		// This code forces grayscale values to be slightly saturated
 		// so that some slight change of hue will be visible
-		const float minLightness = 0.11 / 2.0;
-		const float minSaturation = 0.09;
-		if (hsv.z < minLightness) hsv = vec3(0.0, 1.0, minLightness);
-		else if (hsv.y < minSaturation) hsv = vec3(0.0, minSaturation, hsv.z);
+        // dash: this makes costumes with grayscale parts look ugly, so it's disabled
+
+		// const float minLightness = 0.11 / 2.0;
+		// const float minSaturation = 0.09;
+		// if (hsv.z < minLightness) hsv = vec3(0.0, 1.0, minLightness);
+		// else if (hsv.y < minSaturation) hsv = vec3(0.0, minSaturation, hsv.z);
 
 		hsv.x = mod(hsv.x + u_color, 1.0);
 		if (hsv.x < 0.0) hsv.x += 1.0;
