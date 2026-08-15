@@ -158,21 +158,21 @@ ShaderManager.EFFECT_INFO = {
     red: {
         uniformName: 'u_red',
         mask: 1 << 7,
-        converter: x => (((Math.max(-100, Math.min(x, 100)) / 100) * 4) + 1),
+        converter: x => 1 + (Math.max(-100, x) / 100),
         shapeChanges: false
     },
     /** Green effect */
     green: {
         uniformName: 'u_green',
         mask: 1 << 8,
-        converter: x => (((Math.max(-100, Math.min(x, 100)) / 100) * 4) + 1),
+        converter: x => 1 + (Math.max(-100, x) / 100),
         shapeChanges: false
     },
     /** Blue effect */
     blue: {
         uniformName: 'u_blue',
         mask: 1 << 9,
-        converter: x => (((Math.max(-100, Math.min(x, 100)) / 100) * 4) + 1),
+        converter: x => 1 + (Math.max(-100, x) / 100),
         shapeChanges: false
     },
     /** Horizontal shear effect */
